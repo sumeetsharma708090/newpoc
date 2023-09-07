@@ -1,0 +1,5 @@
+# Created at 2023-09-06T23:58:10.758
+Boot Manifest-JAR contains absolute paths in classpath 'E:\sumeet\microservice_workspace\microservice2\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

@@ -1,0 +1,43 @@
+version: "3"
+services:
+  microservice1:
+    image: microservice1
+    build: ./microservice1
+    ports:
+      - "8083:8083"
+    environment:
+        ELASTIC_APM_SECRET_TOKEN: "p5rRvCMmDeLWWtsRtL"
+        ELASTIC_APM_SERVER_URL: "https://f9b0903167784ce6bf6cb14fe05a1a3b.apm.us-central1.gcp.cloud.es.io:443"
+        ELASTIC_APM_LOG_LEVEL: "DEBUG"
+    depends_on:
+      - mysqldb
+
+  microservice2:
+    image: microservice2
+    build: ./microservice2
+    ports:
+      - "8082:8082"
+    environment:
+        ELASTIC_APM_SECRET_TOKEN: "p5rRvCMmDeLWWtsRtL"
+        ELASTIC_APM_SERVER_URL: "https://f9b0903167784ce6bf6cb14fe05a1a3b.apm.us-central1.gcp.cloud.es.io:443"
+        ELASTIC_APM_LOG_LEVEL: "DEBUG"
+    depends_on:
+      - mysqldb
+ 
+  microservice3:
+    image: microservice3
+    build: ./microservice3
+    ports:
+      - "8081:8081"
+    environment:
+        ELASTIC_APM_SECRET_TOKEN: "p5rRvCMmDeLWWtsRtL"
+        ELASTIC_APM_SERVER_URL: "https://f9b0903167784ce6bf6cb14fe05a1a3b.apm.us-central1.gcp.cloud.es.io:443"
+        ELASTIC_APM_LOG_LEVEL: "DEBUG"
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=msuser
